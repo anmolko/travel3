@@ -9444,6 +9444,10 @@ a.bg-indigo:hover, a.bg-indigo:focus, button.bg-indigo:hover, button.bg-indigo:f
     height: 75% !important
 }
 
+.h-90 {
+    height: 90% !important
+}
+
 .h-100 {
     height: 100% !important
 }
@@ -23643,3 +23647,39 @@ button:focus {
         right: -9%
     }
 }
+
+.custom-description{
+    text-align: justify;
+}
+
+.custom-description blockquote{
+    max-width: 610px;
+    font-weight: 500!important;
+    color: #333!important;
+    border-width: 4px!important;
+    line-height: 2!important;
+    border-left: 6px solid #0ec6d5!important;
+    font-size: 16px!important;
+    margin-left: 3.125rem!important;
+}
+
+.custom-description blockquote p{
+    margin-left: 10px;
+}
+
+.custom-description ul, .custom-description ol{
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 0px;
+    list-style-type: none;
+}
+
+.custom-description ul li:before, .custom-description ol li:before{
+    margin-right: 0.625rem!important;
+    font-family: 'font awesome 5 pro';
+    font-weight: 400;
+    content: "\f00c";
+    color: #0ec6d5!important;
+
+}
+

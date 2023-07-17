@@ -82,7 +82,7 @@
                                     <div class="card-img-overlay p-2 d-flex flex-column">
                                         <div>
                                             @if($package->package_ribbon_id)
-                                                <span class="badge mr-2 badge-orange">featured</span>
+                                                <span class="badge mr-2 badge-orange {{$package->packageRibbon->key ?? ''}}">{{$package->packageRibbon->title ?? ''}}</span>
                                             @endif
                                         </div>
                                         <ul class="list-inline mb-0 mt-auto hover-image">
@@ -97,7 +97,7 @@
                                             @endif
                                             @if($package->video)
                                                 <li class="list-inline-item" data-toggle="tooltip" title="1 Video">
-                                                    <a href="#" class="text-white hover-primary">
+                                                    <a href="{{ route('frontend.activity.show',$package->slug) }}" class="text-white hover-primary">
                                                         <i class="far fa-play-circle"></i><span class="pl-1">1</span>
                                                     </a>
                                                 </li>

@@ -8,41 +8,71 @@
 
     @include($view_path.'includes.show_breadcrumb')
 
-    <section class="pt60 pb90 bgc-f8">
+    <div class="primary-content pt-8">
         <div class="container">
-            <div class="row wow fadeInUp" data-wow-delay="100ms">
-                <div class="col-lg-8">
-                    <div class="single-property-content mb30-md">
-                        <h2 class="sp-lg-title">{{ $data['row']->title }}</h2>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-property-content">
-                        <div class="property-action text-lg-end">
-                            <h3 class="price mb-0">{{ $data['row']->price ?? ''}}</h3>
+            <div class="row">
+                <article class="col-lg-8 pr-xl-4">
+                    <section class="pb-7 border-bottom">
+                        <div class="d-sm-flex justify-content-sm-between mb-4">
+                            <div>
+                                <h2 class="fs-35 font-weight-600 lh-15 text-heading">{{ $data['row']->title }}</h2>
+                                <span class="list-inline-item mr-2 mt-2 mt-sm-0"><i class="fal fa-clock mr-1"></i>{{date('d M Y', strtotime($data['row']->created_at))}}</span>
+                            </div>
+                            <div class="mt-2 text-lg-right">
+                                <p class="fs-22 text-heading font-weight-bold mb-0">{{ $data['row']->price ?? ''}}</p>
+                                @if($data['row']->package_ribbon_id)
+                                    <span class="list-inline-item badge badge-orange mr-2 {{$data['row']->packageRibbon->key ?? ''}}">{{$data['row']->packageRibbon->title ?? ''}}</span>
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb30 mt10 wow fadeInUp" data-wow-delay="300ms">
-                @if(count($data['row']->packageGalleries)>0)
-                    @include($view_path.'partials.gallery')
-                @endif
-            </div>
+                        @if(count($data['row']->packageGalleries)>0)
+                            @include($view_path.'partials.gallery')
+                        @endif
 
-            {{--  for description  --}}
-            <div class="row wrap wow fadeInUp" data-wow-delay="500ms">
-                @include($view_path.'partials.description')
-                <div class="col-lg-4">
-                    @include($view_path.'includes.sidebar')
-                </div>
+                        <h4 class="fs-22 text-heading mb-6">Facts and Features</h4>
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-4 mb-6">
+                                <div class="media">
+                                    <div class="p-2 shadow-xxs-1 rounded-lg mr-2">
+                                        <svg class="icon icon-family fs-32 text-primary"><use xlink:href="#icon-family"></use></svg>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="my-1 fs-14 text-uppercase letter-spacing-093 font-weight-normal">Country</h5>
+                                        <p class="mb-0 fs-13 font-weight-bold text-heading">{{ $data['row']->country->title ?? '' }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 mb-6">
+                                <div class="media">
+                                    <div class="p-2 shadow-xxs-1 rounded-lg mr-2">
+                                        <svg class="icon icon-year fs-32 text-primary"><use xlink:href="#icon-year"></use></svg>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="my-1 fs-14 text-uppercase letter-spacing-093 font-weight-normal">Duration</h5>
+                                        <p class="mb-0 fs-13 font-weight-bold text-heading">{{ $data['row']->duration }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 mb-6">
+                                <div class="media">
+                                    <div class="p-2 shadow-xxs-1 rounded-lg mr-2">
+                                        <svg class="icon icon-heating fs-32 text-primary"><use xlink:href="#icon-heating"></use></svg>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="my-1 fs-14 text-uppercase letter-spacing-093 font-weight-normal">Category</h5>
+                                        <p class="mb-0 fs-13 font-weight-bold text-heading">{{ $data['row']->packageCategory->title ?? '' }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    @include($view_path.'partials.description')
+
+                </article>
+                @include($view_path.'includes.sidebar')
             </div>
-            @if(count($data['related_activity']) > 0)
-                @include($view_path.'partials.related_activity')
-            @endif
         </div>
-    </section>
-
+    </div>
 @endsection
 
 @section('js')

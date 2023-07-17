@@ -1,87 +1,43 @@
-<div class="col-lg-8">
-    <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
-        <h4 class="title fz17 mb30">Overview</h4>
-        <div class="row">
-            <div class="col-sm-6 col-lg-4">
-                <div class="overview-element mb25 d-flex align-items-center">
-                    <span class="icon flaticon-maps"></span>
-                    <div class="ml15">
-                        <h6 class="mb-0">Country</h6>
-                        <p class="text mb-0 fz15">{{ $data['row']->country->title ?? '' }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <div class="overview-element mb25 d-flex align-items-center">
-                    <span class="icon flaticon-event"></span>
-                    <div class="ml15">
-                        <h6 class="mb-0">Duration</h6>
-                        <p class="text mb-0 fz15">{{ $data['row']->duration }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <div class="overview-element mb25 d-flex align-items-center">
-                    <span class="icon flaticon-home-1"></span>
-                    <div class="ml15">
-                        <h6 class="mb-0">Category</h6>
-                        <p class="text mb-0 fz15">{{ $data['row']->packageCategory->title ?? '' }}</p>
-                    </div>
-                </div>
-            </div>
-            @if($data['row']->packageRibbon)
-                <div class="col-sm-6 col-lg-4">
-                    <div class="overview-element mb25-xs d-flex align-items-center">
-                        <span class="icon flaticon-discovery"></span>
-                        <div class="ml15">
-                            <h6 class="mb-0">Ribbon</h6>
-                            <p class="text mb-0 fz15">{{ $data['row']->packageRibbon->title ?? '' }}</p>
-                        </div>
-                    </div>
-                </div>
-            @endif
-        </div>
+<section class="pt-6 border-bottom">
+    <h4 class="fs-22 text-heading my-2">Description</h4>
+    <div class="mb-0 lh-214 custom-description">
+        {!! $data['row']->description !!}
     </div>
-    <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
-        <h4 class="title fz17 mb30">Description</h4>
-        <div class="text mb10 custom-description">
-            {!! $data['row']->description !!}
+</section>
+@if($data['row']->itinerary)
+    <section class="pt-6 border-bottom">
+        <h4 class="fs-22 text-heading my-2">Itinerary</h4>
+        <div class="mb-0 lh-214 custom-description">
+            {!! $data['row']->itinerary !!}
         </div>
-    </div>
-    @if($data['row']->video)
-        <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
-            <h4 class="title fz17 mb30">Video</h4>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="property_video bdrs12 w-100" style="background-image: {{ getYoutubeThumbnail($data['row']->video) }}">
-                        <a class="video_popup_btn mx-auto popup-img popup-youtube"
-                           href="{{ $data['row']->video  }}">
-                            <span class="flaticon-play"></span>
-                        </a>
-                    </div>
+    </section>
+@endif
+@if($data['row']->map)
+    <section class="py-6 border-bottom">
+        <h4 class="fs-22 text-heading mb-6">Location</h4>
+        <div class="position-relative">
+            <div id="map" class="mapbox-gl map-point-animate mapboxgl-map">
+                <iframe loading="lazy" src="{{ $data['row']->map }}" allowfullscreen="" style="height: 400px; width: 830px" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+        </div>
+    </section>
+@endif
+@if($data['row']->video)
+    <section class="py-6 border-bottom galleries">
+        <h4 class="fs-22 text-heading mb-6">Video</h4>
+        <div class="item item-size-3-2">
+            <div class="card p-0">
+                <div class="card-img" style="background-image:url('{{ getYoutubeThumbnail($data['row']->video) }}')">
+                </div>
+                <div class="card-img-overlay d-flex align-items-center justify-content-center p-4">
+                    <a href="{{ $data['row']->video }}" class="d-inline-block position-relative play-animation" data-gtf-mfp="true"
+                       data-mfp-options="{&quot;type&quot;:&quot;iframe&quot;}" tabindex="0">
+                                            <span class="text-primary bg-white w-78px h-78 rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="fas fa-play"></i>
+                                        </span>
+                    </a>
                 </div>
             </div>
         </div>
-    @endif
-
-    @if($data['row']->itinerary)
-        <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
-            <h4 class="title fz17 mb30">Itinerary</h4>
-            <div class="text mb10 custom-description">
-                {!! $data['row']->itinerary !!}
-            </div>
-        </div>
-    @endif
-
-    @if($data['row']->map)
-        <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
-            <h4 class="title fz17 mb30 mt30">Map</h4>
-            <div class="row">
-                <div class="col-lg-12">
-                    <iframe class="position-relative bdrs12 mt30 h250" loading="lazy"
-                            src="{{ $data['row']->map }}" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                </div>
-            </div>
-        </div>
-    @endif
-</div>
+    </section>
+@endif
