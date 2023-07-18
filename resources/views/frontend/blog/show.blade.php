@@ -5,39 +5,27 @@
 
     @include($module.'includes.breadcrumb',['breadcrumb_image'=>'bread-bg8.jpeg'])
 
-    <section class="our-blog">
+    <section class="pt-13 pb-12">
         <div class="container">
-            <div class="row wow fadeInUp" data-wow-delay="300ms">
-                <div class="col-lg-8">
-                    <img class="w-100 bdrs12 lazy mb15" data-src="{{ asset(imagePath($data['row']->image)) }}" alt="">
-                    <h2 class="blog-title">{{ $data['row']->title ?? '' }}</h2>
-                    <div class="blog-single-meta">
-                        <div class="post-author d-sm-flex align-items-center">
-                            <a class="pr15 bdrr1" href="#">{{ $data['row']->blogCategory->title ?? ''}}</a>
-                            <a class="ml15" href="#">{{date('d M Y', strtotime($data['row']->created_at))}}</a>
-                        </div>
+            <div class="row ml-xl-0 mr-xl-n6">
+                <div class="col-lg-8 mb-6 mb-lg-0 pr-xl-6 pl-xl-0">
+                    <div class="position-relative">
+                        <img class="rounded-lg d-block w-100 lazy" data-src="{{ asset(imagePath($data['row']->image)) }}" alt="">
+                        <a href="{{ route('frontend.blog.category', $data['row']->blogCategory->slug)}}" class="badge text-white bg-dark-opacity-04 fs-13 font-weight-500 bg-hover-primary hover-white m-2 position-absolute letter-spacing-1 pos-fixed-bottom">
+                            {{ $data['row']->blogCategory->title ?? ''}}
+                        </a>
                     </div>
-                    <div class="ui-content mt40 mb60">
-                        <div class="mb25 ff-heading custom-description">
-                            {!!  $data['row']->description !!}
-                        </div>
-                    </div>
-                    <div class="bdrt1 bdrb1 d-block d-sm-flex justify-content-between pt50 pt30-sm pb50 pb30-sm">
-                        <div class="blog_post_share d-flex align-items-center mb10-sm">
-                            <span class="mr30">Share this post</span>
-                            <a class="mr20" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="mr20" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="mr20" href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        <div class="bsp_tags d-flex">
-                            <a class="mr10" href="#">Figma</a>
-                            <a class="mr10" href="#">Sketch</a>
-                            <a href="#">HTML5</a>
-                        </div>
+                    <ul class="list-inline mt-4">
+                        <li class="list-inline-item mr-4"><i class="far fa-calendar mr-1"></i> {{date('d M Y', strtotime($data['row']->created_at))}}</li>
+                    </ul>
+                    <h3 class="fs-md-32 text-heading lh-141 mb-2">
+                        {{ $data['row']->title ?? '' }}
+                    </h3>
+                    <div class="lh-214 mb-9 custom-description">
+                        {!!  $data['row']->description !!}
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 pl-xl-6 pr-xl-0 primary-sidebar sidebar-sticky" id="sidebar">
                     @include($view_path.'includes.sidebar')
                 </div>
             </div>

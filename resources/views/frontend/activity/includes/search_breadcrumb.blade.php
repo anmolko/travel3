@@ -3,17 +3,17 @@
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb text-light mb-0 p-0">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item text-white"><a href="/">Home</a></li>
                 @if($page_method !== 'index')
-                    <li class="breadcrumb-item"><a href="{{route($base_route.'index')}}">{{ $panel }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ $data['category']->title }}</li>
+                    <li class="breadcrumb-item text-white"><a href="{{route($base_route.'index')}}">{{ $panel }}</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">{{ $data['category']->title }}</li>
                 @else
-                    <li class="breadcrumb-item active" aria-current="page">{{ $data['category']->title }}</li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">{{ $data['category']->title }}</li>
                 @endif
 
             </ol>
         </nav>
-        <h1 class="fs-32 mb-0 text-white font-weight-600 text-center pt-11 mb-5 lh-17 mxw-478" data-animate="fadeInDown">Meet The Agents
+        <h1 class="fs-32 mb-0 text-white font-weight-600 text-center pt-11 mb-5 lh-17 mxw-478" data-animate="fadeInDown">
             {{ $panel }} </h1>
     </div>
 </section>

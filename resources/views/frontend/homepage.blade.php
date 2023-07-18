@@ -257,7 +257,7 @@
                                 <div class="card border-0 shadow-xxs-3" data-animate="fadeInUp">
                                     <div class="position-relative d-flex align-items-end card-img-top">
                                         <a href="{{ route('frontend.blog.show', $blog->slug) }}" class="hover-shine">
-                                            <img src="{{ asset(imagePath($blog->image))}}" alt="The Interior Design The Hall On str. Filimonovo">
+                                            <img src="{{ asset(imagePath($blog->image))}}" alt="">
                                         </a>
                                         <a href="{{ route('frontend.blog.category', $blog->blogCategory->slug) }}" class="badge text-white bg-dark-opacity-04 fs-13 font-weight-500 bg-hover-primary hover-white mx-2 my-4 position-absolute pos-fixed-bottom">
                                             {{ $blog->blogCategory->title ?? '' }}

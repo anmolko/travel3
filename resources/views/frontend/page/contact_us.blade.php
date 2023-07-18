@@ -8,127 +8,91 @@
     @include($module.'includes.breadcrumb',['breadcrumb_image'=> 'bread-bg8.jpeg'])
 
 
-    <section class="pt-60 pb90 our-ui-elements">
+    <section class="mb-2">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="home8-contact-form default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white">
-                        <h4 class="form-title mb25">Send us a message.</h4>
-                        {!! Form::open(['route' => $module.'contact-us.store', 'method'=>'POST', 'class'=>'form-style1 submit_form']) !!}
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="mb20">
-                                        <label class="heading-color ff-heading fw600 mb10">Your Name</label>
-                                        <input class="form-control" type="text" name="name" placeholder="Your name">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb20">
-                                        <label class="heading-color ff-heading fw600 mb10">Your Phone</label>
-                                        <input class="form-control" type="text" name="phone" placeholder="Phone number">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb20">
-                                        <label class="heading-color ff-heading fw600 mb10">Email</label>
-                                        <input class="form-control" type="email" name="email" placeholder="Email address">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="mb20">
-                                        <label class="heading-color ff-heading fw600 mb10">Subject</label>
-                                        <input class="form-control" type="text" name="subject" placeholder="Enter subject">
-                                        <input class="form-control" type="hidden" name="type" value="contact form inquiry">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="mb10">
-                                        <label class="heading-color ff-heading fw600 mb10">Message</label>
-                                        <textarea class="message-control form-control" rows="4" name="message" placeholder="Write message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 mt20">
-                                    <div class="d-grid">
-                                        <button type="submit" class="ud-btn btn-thm">Send Message <i class="fal fa-arrow-right-long"></i></button>
-                                    </div>
+            <div class="card border-0 mt-n10 z-index-3 pb-8 pt-10">
+                <div class="card-body p-0 shadow-sm-4">
+                    <h2 class="text-heading mb-2 fs-22 fs-md-32 text-center lh-16">We're always eager to hear from
+                        you!</h2>
+                    <p class="text-center mxw-670 mb-8">
+                        Send us a message or ask a question and we will get back to you as soon as possible
+                    </p>
+                    {!! Form::open(['route' => $module.'contact-us.store', 'method'=>'POST', 'class'=>'mxw-751 px-md-5 submit_form']) !!}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Name" class="form-control form-control-lg border-0" name="name">
                                 </div>
                             </div>
-                        {!! Form::close() !!}
-                    </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Phone" name="phone" class="form-control form-control-lg border-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input placeholder="Your Email" class="form-control form-control-lg border-0" type="email" name="email">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Subject" name="subject" class="form-control form-control-lg border-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-6">
+                            <textarea class="form-control border-0" placeholder="Message" name="message" rows="5"></textarea>
+                        </div>
+                        <div class="text-center mb-3">
+                            <button type="submit" class="btn btn-lg btn-primary px-9">Submit</button>
+                        </div>
+                    {!! Form::close() !!}
                 </div>
-                <div class="col-md-6 col-lg-5 mt70 ml60 pl30-md pl15-xs wow fadeInRight" data-wow-delay="500ms">
-                    <div class="mb30">
-                        <h2 class="title text-capitalize">Have any questions? You can also <br class="d-none d-md-block"> contact us directly.</h2>
-                    </div>
-                    <div class="why-chose-list style2">
-                        <div class="list-one d-flex align-items-start mb30">
-                            <span class="list-icon flex-shrink-0 flaticon-home-3"></span>
-                            <div class="list-content flex-grow-1 mt5 ml20">
-                                <h6 class="mb-1">  {{$data['setting_data']->address ?? ''}}</h6>
-                                <p class="text mb-0 fz15">Our address</p>
-                            </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-lg-4 mb-6 mb-lg-0">
+                    <a href="mailto:{{@$data['setting_data']->email ?? ''}}" class="card border-0 shadow-2 px-7 py-5 h-100 shadow-hover-lg-1">
+                        <div class="card-img-top d-flex align-items-end justify-content-center">
+                            <img src="{{asset('assets/frontend/images/icon-box-5.png')}}" alt="Meet our agents">
                         </div>
-                        <div class="list-one d-flex align-items-start mb30">
-                            <span class="list-icon flex-shrink-0 flaticon-email"></span>
-                            <div class="list-content flex-grow-1 mt5 ml20">
-                                <h6 class="mb-1"><a href="mailto:{{@$data['setting_data']->email ?? ''}}">
-                                        {{$data['setting_data']->email ?? ''}}
-                                    </a> </h6>
-                                <p class="text mb-0 fz15">Send us an email.</p>
-                            </div>
+                        <div class="card-body px-0 pt-2 pb-0 text-center">
+                            <h4 class="card-title fs-16 lh-186 text-dark hover-primary"> {{$data['setting_data']->address ?? ''}}</h4>
                         </div>
-                        <div class="list-one d-flex align-items-start mb30">
-                            <span class="list-icon flex-shrink-0 flaticon-smartphone"></span>
-                            <div class="list-content flex-grow-1 mt5 ml20">
-                                <h6 class="mb-1">
-                                    <a href="tel:{{$data['setting_data']->phone ?? $data['setting_data']->mobile ?? $data['setting_data']->whatsapp ?? $data['setting_data']->viber ?? ''}}">
-                                        {{$data['setting_data']->phone ?? $data['setting_data']->mobile ?? $data['setting_data']->whatsapp ?? $data['setting_data']->viber ?? ''}}
-                                    </a>
-                                </h6>
-                                <p class="text mb-0 fz15">Give us a call</p>
-                            </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-lg-4 mb-6 mb-lg-0">
+                    <a href="tel:{{$data['setting_data']->phone ?? $data['setting_data']->mobile ?? $data['setting_data']->whatsapp ?? $data['setting_data']->viber ?? ''}}" class="card border-0 shadow-2 px-7 py-5 h-100 shadow-hover-lg-1">
+                        <div class="card-img-top d-flex align-items-end justify-content-center">
+                            <img src="{{asset('assets/frontend/images/icon-box-4.png')}}" alt="Sell your home">
                         </div>
-                        <div class="list-one  mb30">
-                            @if(!empty(@$data['setting_data']->facebook) || !empty(@$data['setting_data']->youtube) || !empty(@$data['setting_data']->instagram) || !empty(@$data['setting_data']->linkedin) || !empty(@$data['setting_data']->ticktock))
-                                <h4 class="form-title mb25">Follow us on: </h4>
-                                <div class="social-style2 d-flex align-items-start">
-                                @if(@$data['setting_data']->facebook)
-                                    <a href="{{@$data['setting_data']->facebook}}" class="me-3">
-                                        <i class="fa-brands fa-facebook-f"></i>
-                                    </a>
-                                @endif
-                                @if(@$data['setting_data']->youtube)
-                                    <a href="{{@$data['setting_data']->youtube}}" class="me-3">
-                                        <i class="fa-brands fa-youtube"></i>
-                                    </a>
-                                @endif
-                                @if(@$data['setting_data']->instagram)
-                                    <a href="{{@$data['setting_data']->instagram}}" class="me-3">
-                                        <i class="fa-brands fa-instagram"></i>
-                                    </a>
-                                @endif
-                                @if(@$data['setting_data']->linkedin)
-                                    <a href="{{@$data['setting_data']->linkedin}}" class="me-3">
-                                        <i class="fa-brands fa-linkedin"></i>
-                                    </a>
-                                @endif
-                                @if(!empty(@$data['setting_data']->ticktock))
-                                    <a href="{{@$data['setting_data']->ticktock}}" class="me-3">
-                                        <i class="fa-brands fa-tiktok"></i>
-                                    </a>
-                                @endif
-                            </div>
-                            @endif
+                        <div class="card-body px-0 pt-2 pb-0 text-center">
+                            <h4 class="card-title fs-16 lh-186 text-dark hover-primary">
+                                {{$data['setting_data']->phone ?? $data['setting_data']->mobile ?? $data['setting_data']->whatsapp ?? $data['setting_data']->viber ?? ''}}
+                            </h4>
                         </div>
-                    </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-lg-4 mb-6 mb-lg-0">
+                    <a href="mailto:{{@$data['setting_data']->email ?? ''}}" class="card border-0 shadow-2 px-7 py-5 h-100 shadow-hover-lg-1">
+                        <div class="card-img-top d-flex align-items-end justify-content-center">
+                            <img src="{{asset('assets/frontend/images/icon-box-7.png')}}" alt="Contact us">
+                        </div>
+                        <div class="card-body px-0 pt-2 text-center pb-0">
+                            <h4 class="card-title fs-16 lh-186 text-dark hover-primary">{{$data['setting_data']->email ?? ''}}</h4>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     @if($data['setting_data'] && $data['setting_data']->google_map)
-        <section class="p-0">
-            <iframe class="home8-map contact-page" src="{{ $data['setting_data']->google_map }}" style="border:0;width: 100%;height: 400px;" allowfullscreen="" loading="lazy"></iframe>
+        <section class="mt-5">
+            <div id="map" class="mapbox-gl map-point-animate">
+                <iframe class="home8-map contact-page" src="{{ $data['setting_data']->google_map }}" style="border:0;width: 100%;height: 400px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </section>
     @endif
 @endsection

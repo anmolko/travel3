@@ -5,28 +5,32 @@
 
     @include($module.'includes.breadcrumb',['breadcrumb_image'=>'team-cta-bg.jpeg'])
 
-    <section class="our-agents bgc-white">
+    <section class="pt-8 pb-13">
         <div class="container">
-            <div class="row wow fadeInUp" data-wow-delay="300ms">
-                @foreach( $data['rows']  as $row)
-                    <div class="col-md-6 col-lg-4">
-                        <div class="agency-style1 p30 bdrs12 bdr1 mb30">
-                            <div class="agency-img">
-                                <img class="w-100" src="{{ asset(imagePath($row->image))}}" alt="">
-                            </div>
-                            <div class="agency-details pt20">
-                                <h6 class="agency-title mb-1">{{ $row->title }}</h6>
-                                <div class="fz15">
-                                    {{ $row->description ?? '' }}
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="text-heading fs-22 lh-15 mb-5">Services Offered</h2>
+                    <div class="row mb-8">
+                        @foreach( $data['rows']  as $row)
+                            <div class="col-sm-6 col-md-4 mb-6 mt-3">
+                                <div class="card border-0">
+                                    <div class="hover-flash card-img-top">
+                                        <img class="lazy" data-src="{{ asset(imagePath($row->image))}}" alt="Property Management">
+                                    </div>
+                                    <div class="card-body px-0 pt-2 pb-0">
+                                        <h4 class="card-title fs-18 lh-17 text-dark mb-0">{{ $row->title }}</h4>
+                                        <p class="card-text">
+                                            {{ $row->description ?? '' }}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
+
+                        <nav class="pt-6">
+                            {{ $data['rows']->links('vendor.pagination.default') }}
+                        </nav>
                     </div>
-                @endforeach
-            </div>
-            <div class="row justify-content-center wow fadeInUp" data-wow-delay="500ms">
-                <div class="mbp_pagination text-center">
-                    {{ $data['rows']->links('vendor.pagination.default') }}
                 </div>
             </div>
         </div>
