@@ -80,11 +80,11 @@
                                 <div class="hover-change-image bg-hover-overlay rounded-lg card-img-top">
                                     <img class="lazy" data-src="{{ asset(imagePath($package->image)) }}" alt="Home in Metric Way">
                                     <div class="card-img-overlay p-2 d-flex flex-column">
-                                        <div>
-                                            @if($package->package_ribbon_id)
-                                                <span class="badge mr-2 badge-orange {{$package->packageRibbon->key ?? ''}}">{{$package->packageRibbon->title ?? ''}}</span>
-                                            @endif
-                                        </div>
+                                        @if($package->package_ribbon_id)
+                                            <div>
+                                               <span class="badge mr-2 badge-orange {{$package->packageRibbon->key ?? ''}}">{{$package->packageRibbon->title ?? ''}}</span>
+                                            </div>
+                                        @endif
                                         <ul class="list-inline mb-0 mt-auto hover-image">
                                             @if(count( $package->packageGalleries ) !== 0)
                                                 <li class="list-inline-item mr-2" data-toggle="tooltip" title="{{count( $package->packageGalleries )}} Images">

@@ -1,4 +1,4 @@
-<div class="galleries position-relative">
+<div class="galleries position-relative border-bottom">
     <div class="slick-slider slider-for-01 arrow-haft-inner mx-0" data-slick-options='{"slidesToShow": 1, "autoplay":false,"dots":false,"arrows":true,"asNavFor": ".slider-nav-01"}'>
         @foreach($data['row']->packageGalleries as $gallery)
             <div class="box px-0">

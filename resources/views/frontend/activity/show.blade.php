@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row">
                 <article class="col-lg-8 pr-xl-4">
-                    <section class="pb-7 border-bottom">
+                    <section class="pb-6 border-bottom">
                         <div class="d-sm-flex justify-content-sm-between mb-4">
                             <div>
                                 <h2 class="fs-35 font-weight-600 lh-15 text-heading">{{ $data['row']->title }}</h2>
@@ -29,12 +29,12 @@
                             @include($view_path.'partials.gallery')
                         @endif
 
-                        <h4 class="fs-22 text-heading mb-6">Facts and Features</h4>
+                        <h4 class="fs-22 text-heading mt-6 mb-6">Facts and Features</h4>
                         <div class="row">
                             <div class="col-lg-4 col-sm-4 mb-6">
                                 <div class="media">
                                     <div class="p-2 shadow-xxs-1 rounded-lg mr-2">
-                                        <svg class="icon icon-family fs-32 text-primary"><use xlink:href="#icon-family"></use></svg>
+                                        <i class="far fa-globe-asia fs-32 text-primary"></i>
                                     </div>
                                     <div class="media-body">
                                         <h5 class="my-1 fs-14 text-uppercase letter-spacing-093 font-weight-normal">Country</h5>
@@ -42,21 +42,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-sm-4 mb-6">
-                                <div class="media">
-                                    <div class="p-2 shadow-xxs-1 rounded-lg mr-2">
-                                        <svg class="icon icon-year fs-32 text-primary"><use xlink:href="#icon-year"></use></svg>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="my-1 fs-14 text-uppercase letter-spacing-093 font-weight-normal">Duration</h5>
-                                        <p class="mb-0 fs-13 font-weight-bold text-heading">{{ $data['row']->duration }}</p>
+                            @if( $data['row']->duration )
+                                <div class="col-lg-4 col-sm-4 mb-6">
+                                    <div class="media">
+                                        <div class="p-2 shadow-xxs-1 rounded-lg mr-2">
+                                            <i class="far fa-calendar-alt fs-32 text-primary"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <h5 class="my-1 fs-14 text-uppercase letter-spacing-093 font-weight-normal">Duration</h5>
+                                            <p class="mb-0 fs-13 font-weight-bold text-heading">{{ $data['row']->duration ?? ''}}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                             <div class="col-lg-4 col-sm-4 mb-6">
                                 <div class="media">
                                     <div class="p-2 shadow-xxs-1 rounded-lg mr-2">
-                                        <svg class="icon icon-heating fs-32 text-primary"><use xlink:href="#icon-heating"></use></svg>
+                                        <i class="far fa-list-alt fs-32 text-primary"></i>
                                     </div>
                                     <div class="media-body">
                                         <h5 class="my-1 fs-14 text-uppercase letter-spacing-093 font-weight-normal">Category</h5>
@@ -73,6 +75,10 @@
             </div>
         </div>
     </div>
+
+    @if(count($data['related_activity']) > 0)
+        @include($view_path.'partials.related_activity')
+    @endif
 @endsection
 
 @section('js')
