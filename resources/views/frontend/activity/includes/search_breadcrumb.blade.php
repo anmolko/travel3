@@ -20,6 +20,8 @@
 
 <section>
     <div class="container">
-        @include($module.'includes.tour_tab')
+        <div class="mt-n8 bg-white px-6 py-3 shadow-sm-2 rounded-lg form-search-02 position-relative z-index-3">
+            @include($module.'includes.tour_tab')
+        </div>
     </div>
 </section>

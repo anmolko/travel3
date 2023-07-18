@@ -16822,8 +16822,8 @@ a.text-indigo:hover, a.text-indigo:focus {
 }
 
 .nav-tabs .nav-link {
-    background-color: #eee;
-    color: inherit;
+    background-color: #5bc7d6;
+    color: #fff;
     padding: .5rem 1.875rem
 }
 
@@ -16840,7 +16840,7 @@ a.text-indigo:hover, a.text-indigo:focus {
     height: 11px;
     left: 0;
     width: 100%;
-    background-color: #fff;
+    background-color: #5bc7d6;
     z-index: 1
 }
 

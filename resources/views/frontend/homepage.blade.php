@@ -27,32 +27,28 @@
     <section>
         <div class="container">
             <div class="mt-n12 px-6 py-3 rounded-lg form-search-02 position-relative z-index-3">
-                <form class="property-search py-lg-0 z-index-2 position-relative d-none d-lg-block">
-                    <div class="row">
-                        <div class="bd-example-wrapper">
-                            <ul class="nav nav-pills property-search-status-tab" role="tablist">
-                                <li class="nav-item bg-secondary rounded-top" role="presentation">
-                                    <a class="nav-link btn shadow-none rounded-bottom-0 text-btn-focus-secondary text-uppercase d-flex align-items-center fs-13 rounded-bottom-0 bg-active-white text-active-secondary letter-spacing-087 flex-md-1 px-4 py-2 active" data-toggle="tab"
-                                       href="#result-158" role="tab" aria-controls="result-158" aria-selected="true">
-                                        Result
-                                    </a>
-                                </li>
-                                <li class="nav-item bg-secondary rounded-top" role="presentation">
-                                    <a class="nav-link btn shadow-none rounded-bottom-0 text-btn-focus-secondary text-uppercase d-flex align-items-center fs-13 rounded-bottom-0 bg-active-white text-active-secondary letter-spacing-087 flex-md-1 px-4 py-2" data-toggle="tab"
-                                       href="#html-158" role="tab" aria-controls="html-158" aria-selected="false">HTML Code</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content bg-white" id="examplte-tab-content-158">
-                                <div class="tab-pane fade show active" id="result-158" role="tabpanel" aria-labelledby="result-158">
-
-                                </div>
-                                <div class="tab-pane fade" id="html-158" role="tabpanel" aria-labelledby="html-158">
-
+                <section class="col-lg-12">
+                    <div class="collapse-tabs">
+                        <ul class="nav nav-tabs tabs-04 d-md-flex d-none" role="tablist">
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link fs-16 active" data-toggle="tab" href="#details" role="tab">Flight</a>--}}
+{{--                            </li>--}}
+                            <li class="nav-item">
+                                <a class="nav-link fs-16" data-toggle="tab" href="#facts" role="tab">Tour</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content  bg-white px-6 py-3 shadow-sm-4 form-search-02 position-relative z-index-3">
+                            <div id="collapse-tabs-accordion-01">
+{{--                                <div class="tab-pane tab-pane-parent fade show active mb-md-0 mb-2" id="details" role="tabpanel">--}}
+{{--                                    @include($module.'includes.flight_tab')--}}
+{{--                                </div>--}}
+                                <div class="tab-pane tab-pane-parent fade show active mb-md-0 mb-2" id="facts" role="tabpanel">
+                                    @include($module.'includes.tour_tab')
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
+                </section>
             </div>
         </div>
     </section>
