@@ -1,37 +1,61 @@
-<div class="advance-content-style1">
-    {!! Form::open(['route' => $module.'activity.search', 'method'=>'POST', 'class'=>'form-search position-relative search_tour_form']) !!}
-        <div class="row">
-            <div class="col-md-4 col-lg-4">
-                <div class="advance-search-field position-relative text-start">
-                    <div class="box-search">
-                        <span class="icon flaticon-home-1"></span>
-                        {!! Form::text('title', null,['class'=>'form-control bgc-f7 bdrs12','id'=>'title','placeholder'=>'Name of activity..']) !!}
-                    </div>
+<div class="mt-n8 bg-white px-6 py-3 shadow-sm-2 rounded-lg form-search-02 position-relative z-index-3">
+    {!! Form::open(['route' => $module.'activity.search', 'method'=>'POST', 'class'=>'d-none row d-md-flex flex-wrap align-items-center search_tour_form']) !!}
+        <div class="col-md-5 mb-3 mb-md-0">
+            <div class="row">
+                <div class="form-group mb-3 mb-md-0 col-md-6">
+                    <label for="language" class="mb-0 lh-1 text-uppercase fs-14 letter-spacing-093">Language</label>
+                    {!! Form::select('package_category_id', $data['search_categories'] , null,['class'=>'form-control form-control-sm font-weight-600  shadow-0 bg-white selectpicker','id'=>'package_category_id','placeholder'=>'Select category','data-style'=>'bg-white pl-0 text-dark rounded-0']) !!}
+                </div>
+                <div class="form-group mb-3 mb-md-0 col-md-6">
+                    <label for="region" class="mb-0 lh-1 text-uppercase fs-14 letter-spacing-093">Region</label>
+                    {!! Form::select('country_id', $data['search_countries'] , null,['class'=>'form-control font-weight-600 pl-0 bg-white selectpicker form-control-sm','id'=>'country_id','placeholder'=>'Select country','data-style'=>'bg-white pl-0 text-dark rounded-0']) !!}
                 </div>
             </div>
-            <div class="col-md-3 col-lg-3">
-                <div class="advance-search-field position-relative text-start">
-                    <div class="box-search">
-                        <span class="icon flaticon-caravan"></span>
-                        {!! Form::select('package_category_id', $data['search_categories'] , null,['class'=>'form-control bgc-f7 bdrs12','id'=>'package_category_id','placeholder'=>'Select category']) !!}
-                    </div>
+        </div>
+        <div class="form-group mb-3 mb-lg-0 col-md-5">
+            <label for="search" class="mb-0 lh-1 text-uppercase fs-14 letter-spacing-093">Search</label>
+            <div class="input-group input-group-sm">
+                {!! Form::text('title', null,['class'=>'form-control pl-0 rounded-0 bg-white','id'=>'title','placeholder'=>'Name of activity..']) !!}
+                <div class="input-group-append ml-0">
+                    <span class="fs-18 input-group-text bg-white rounded-0"><i class="fal fa-search"></i></span>
                 </div>
             </div>
-            <div class="col-md-3 col-lg-3">
-                <div class="advance-search-field position-relative text-start">
-                    <div class="box-search">
-                        <span class="icon flaticon-location"></span>
-                        {!! Form::select('country_id', $data['search_countries'] , null,['class'=>'form-control bgc-f7 bdrs12','id'=>'country_id','placeholder'=>'Select country']) !!}
-                    </div>
+        </div>
+        <div class="col-md-2 pl-0">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                Search
+            </button>
+        </div>
+    {!! Form::close() !!}
+
+    {!! Form::open(['route' => $module.'activity.search', 'method'=>'POST', 'class'=>'d-block d-md-none search_tour_form']) !!}
+        <div class="d-flex align-items-center">
+            <a class="text-body hover-primary d-inline-block fs-24 lh-1 mr-5" data-toggle="collapse" href="#collapseMobileSearch" role="button" aria-expanded="false" aria-controls="collapseMobileSearch">
+                <i class="fal fa-cog"></i>
+            </a>
+            <div class="input-group">
+                {!! Form::text('title', null,['class'=>'form-control pl-0 rounded-0 bg-white','id'=>'title','placeholder'=>'Name of activity..']) !!}
+                <div class="input-group-append ml-0">
+                    <span class="fs-18 input-group-text bg-white rounded-0"><i class="fal fa-search"></i></span>
                 </div>
             </div>
-            <div class="col-md-3 col-lg-2">
-                <div class="d-flex align-items-center justify-content-start justify-content-md-center mt-3 mt-md-0">
-                    <button class="advance-search-icon ud-btn btn-thm ms-4" type="submit"><span class="flaticon-search"></span></button>
+        </div>
+        <div class="collapse" id="collapseMobileSearch">
+            <div class="card card-body border-0 px-0">
+                <div class="form-group mb-3">
+                    <label class="mb-0 lh-1 text-uppercase fs-14 letter-spacing-093">Category</label>
+                    {!! Form::select('package_category_id', $data['search_categories'] , null,['class'=>'form-control form-control-sm font-weight-600  shadow-0 bg-white selectpicker','id'=>'package_category_id','placeholder'=>'Select category','data-style'=>'bg-white pl-0 text-dark rounded-0']) !!}
+
                 </div>
+                <div class="form-group mb-3">
+                    <label class="mb-0 lh-1 text-uppercase fs-14 letter-spacing-093">Country</label>
+                    {!! Form::select('country_id', $data['search_countries'] , null,['class'=>'form-control font-weight-600 pl-0 bg-white selectpicker form-control-sm','id'=>'country_id','placeholder'=>'Select country','data-style'=>'bg-white pl-0 text-dark rounded-0']) !!}
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                    Search
+                </button>
             </div>
         </div>
     {!! Form::close() !!}
 </div>
-
 
