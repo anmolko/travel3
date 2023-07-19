@@ -22780,6 +22780,10 @@ a.bg-hover-indigo:focus {
     margin: 0 auto
 }
 
+.mxw-840 {
+    max-width: 840px;
+    margin: 0 auto
+}
 .mxw-940 {
     max-width: 940px;
     margin: 0 auto

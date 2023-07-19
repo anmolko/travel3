@@ -1,17 +1,13 @@
-<section class="cta-banner4 mt60 d-flex align-items-center" style="background-image: url({{ asset('assets/frontend/images/background/bread-bg8.jpeg') }})">
+<section class="pt-11 pb-13 bg-cover bg-white-overlay" style="background-image:linear-gradient(360deg, rgba(24, 26, 48, 0) 0%, #3a3b3e 100%),url({{ asset('assets/frontend/images/bread-bg8.jpeg') }})" data-animated-id="9">
     <div class="container">
-        <div class="row">
-            <div class="col-xl-10 mx-auto wow fadeInUp" data-wow-delay="300ms">
-                <div class="cta-style4 position-relative text-center">
-                    <h6 class="sub-title fw400 text-white">{{ $element->first()->subtitle ?? '' }}</h6>
-                    <h1 class="cta-title mb30 text-white">{{ $element->first()->title ?? '' }}</h1>
-                    @if($element->first()->button_link)
-                        <div class="d-block d-sm-flex justify-content-center">
-                            <a href="http://localhost:8000/activity" class="ud-btn btn-white">Our Activity <i class="fal fa-arrow-right-long"></i></a>
-                        </div>
-                    @endif
-                </div>
-            </div>
-        </div>
+        <form class="text-center fadeInUp animated" data-animate="fadeInUp">
+            <p class="text-primary font-weight-500 letter-spacing-263 text-center text-uppercase mb-3">{{ $element->first()->subtitle ?? '' }}</p>
+            <h2 class="fs-34 font-weight-normal lh-141 text-white mxw-840">
+                {{ $element->first()->title ?? '' }}
+            </h2>
+            @if($element->first()->button_link)
+                <a href="{{ $element->first()->button_link }}"  class="btn btn-lg btn-primary mt-2 px-10">{{ $element->first()->button ?? 'Learn More' }}<i class="fal fa-arrow-right-long"></i></a>
+            @endif
+        </form>
     </div>
 </section>
