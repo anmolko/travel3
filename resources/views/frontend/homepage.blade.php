@@ -30,19 +30,20 @@
                 <section class="col-lg-12">
                     <div class="collapse-tabs">
                         <ul class="nav nav-tabs tabs-04 d-md-flex d-none" role="tablist">
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link fs-16 active" data-toggle="tab" href="#details" role="tab">Flight</a>--}}
-{{--                            </li>--}}
+                            <li class="nav-item">
+                                <a class="nav-link fs-16 active" data-toggle="tab" href="#details" role="tab">
+                                    Flight</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link fs-16" data-toggle="tab" href="#facts" role="tab">Tour</a>
                             </li>
                         </ul>
                         <div class="tab-content  bg-white px-6 py-3 shadow-sm-4 form-search-02 position-relative z-index-3">
                             <div id="collapse-tabs-accordion-01">
-{{--                                <div class="tab-pane tab-pane-parent fade show active mb-md-0 mb-2" id="details" role="tabpanel">--}}
-{{--                                    @include($module.'includes.flight_tab')--}}
-{{--                                </div>--}}
-                                <div class="tab-pane tab-pane-parent fade show active mb-md-0 mb-2" id="facts" role="tabpanel">
+                                <div class="tab-pane tab-pane-parent fade show active mb-md-0 mb-2" id="details" role="tabpanel">
+                                    @include($module.'includes.flight_tab')
+                                </div>
+                                <div class="tab-pane tab-pane-parent fade" id="facts" role="tabpanel">
                                     @include($module.'includes.tour_tab')
                                 </div>
                             </div>

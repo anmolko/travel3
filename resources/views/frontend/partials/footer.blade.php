@@ -126,8 +126,9 @@
 <script src="{{ asset('assets/frontend/vendors/mapbox-gl/mapbox-gl.js') }}"></script>
 <script src="{{ asset('assets/frontend/vendors/dataTables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/common/lazyload.js') }}"></script>
-
 <script src="{{ asset('assets/frontend/js/theme.js') }}"></script>
+@yield('js')
+@stack('scripts')
 </body>
 </html>
 
